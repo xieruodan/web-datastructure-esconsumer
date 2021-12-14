@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <title>False Section Distribution</title>
+
+    <!--    home common header-->
+    <div th:include="common :: homeCommonHeader"></div>
+</head>
+<body class="is-preload" style="background-color:#F4F4F4;">
+<!-- Header -->
+<header id="header">
+    <div th:replace="common :: homeCommonHeader1"></div>
+    <div th:replace="common :: homeCommonHeader2"></div>
+    <div th:replace="common :: homeCommonHeader3"></div>
+    <div th:replace="common :: homeCommonHeader4"></div>
+    <div th:replace="common :: homeCommonHeader5"></div>
+    <div th:replace="common :: homeCommonHeader6"></div>
+</header>
+
+<!-- Heading -->
+<div id="heading">
+    <h1>用户错题的章节分布</h1>
+</div>
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <div class="content">
+
+            <!-- Elements -->
+            <div class="row">
+                <h3>Id号为[[${userId}]]用户</h3>
+                <h4>错题章节分布</h4>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>章节</th>
+                            <th>做错次数</th>
+                            <th>百分比</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="fs,stat:${falseSectionMap}">
+                            <th>[[${fs.getKey()}]]</th>
+                            <th>[[${fs.getValue()}]]</th>
+                            <th>[[${falseSectionPercentageMap.get(fs.getKey())}]]</th>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>100%</td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--home common footer-->
+<div th:replace="common :: homeCommonFooter"></div>
+
+<!--home common script-->
+<div th:replace="common :: #homeCommonScript"></div>
+</body>
+</html>

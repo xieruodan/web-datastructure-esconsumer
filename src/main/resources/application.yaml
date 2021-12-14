@@ -1,0 +1,15 @@
+server:
+  port: 8081
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://localhost:8076/eureka
+spring:
+  application:
+    name: DataStructure_LearningDataAdminEsConsumer_1
+  security:
+    user:
+      name: butter
+      password: butterxrd
